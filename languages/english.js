@@ -1502,14 +1502,15 @@ module.exports = class {
 
 			// Utils
 			SETLANG_DESCRIPTION: "Change the server language!",
-			SETLANG_USAGE: "setlang [french/english]",
-			SETLANG_EXAMPLES: "$setlang french\n$setlang english",
+			SETLANG_USAGE: "setlang [french/english/spanish]",
+			SETLANG_EXAMPLES: "$setlang french\n$setlang english\n$setlang spanish",
 			// Errors
-			SETLANG_ERR_LANG: `${e.error} | Please enter a valid language (\`french\` or \`english\`) !`,
+			SETLANG_ERR_LANG: `${e.error} | Please enter a valid language (\`french\`, \`english\` or \`spanish\`) !`,
 			// Content
 			SETLANG_LANGS:[
 				":flag_fr: | La langue de ce serveur est maintenant le Français !",
-				":flag_gb: | The language of this server is now English!"
+				":flag_gb: | The language of this server is now English!",
+				":flag_es: | El lenguaje de este servidor ahora es español!"
 			],
 
 			/* FORTNITE COMMAND */

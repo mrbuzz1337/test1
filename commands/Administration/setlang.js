@@ -38,6 +38,12 @@ class Setlang extends Command {
             await data.guild.save();
             return message.channel.send(message.language.get("SETLANG_LANGS")[1]);
         }
+
+        if(args[0] === "spanish"){
+            data.guild.language = "spanish";
+            await data.guild.save();
+            return message.channel.send(message.language.get("SETLANG_LANGS")[2]);
+        }
         
         return message.channel.send(message.language.get("SETLANG_ERR_LANG"));
         
