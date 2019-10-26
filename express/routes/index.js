@@ -2,8 +2,8 @@ const express = require("express"),
 CheckAuth = require("../auth/CheckAuth"),
 router = express.Router();
 
-router.get("/", CheckAuth, async (req, res) => {
-    res.redirect("/selector");
+router.get("/", async (req, res) => {
+    res.send("Hello");
 });
 
 router.get("/selector", CheckAuth, async(req, res) => {

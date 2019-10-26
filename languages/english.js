@@ -741,7 +741,7 @@ module.exports = class {
 				[ "Warns" ],
 				[ "Automoderation", "Automoderation disabled" ],
 				[ "Auto-delete commands", "Auto-deletion of moderation commands disabled" ],
-				[ "Edit your configuration", `[Clic here to go on the dashboard!](${c.dashboard.baseURL})`]
+				[ "Edit your configuration", `[Clic here to go on the dashboard!](${c.expressServer.dashboard.baseURL})`]
 			],
 			CONFIGURATION_AUTOROLE: (roleID) => `Role : <@&${roleID}>`,
 			CONFIGURATION_WELCOME: (withImage, channelID) => `Channel : <#${channelID}>\nImage : ${withImage ? "Yes" : "No"}`,

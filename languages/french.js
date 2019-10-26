@@ -652,7 +652,7 @@ module.exports = class {
 				[ "Avertissements" ],
 				[ "Automodération", "Automodération désactivée" ],
 				[ "Auto-suppression commandes", "Auto-suppression des commandes de modération désactivée" ],
-				[ "Éditer votre configuration", `[Cliquez ici pour accéder au dashboard !](${c.dashboard.baseURL})`]
+				[ "Éditer votre configuration", `[Cliquez ici pour accéder au dashboard !](${c.expressServer.dashboard.baseURL})`]
 			],
 			CONFIGURATION_AUTOROLE: (roleID) => `Rôle : <@&${roleID}>`,
 			CONFIGURATION_WELCOME: (withImage, channelID) => `Salon : <#${channelID}>\nImage : ${withImage ? "Oui" : "Non"}`,

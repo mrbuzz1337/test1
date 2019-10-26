@@ -36,8 +36,8 @@ module.exports = class {
         autoUpdateDocs.update(client);
 
         // Start the dashboard
-        if(client.config.dashboard.enabled){
-            client.dashboard.load(client);
+        if(client.config.expressServer.enabled){
+            client.expressServer.load(client);
         }
 
         // Start update of giveaways
