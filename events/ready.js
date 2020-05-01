@@ -19,15 +19,15 @@ module.exports = class {
         let discordbotsorg = require("../helpers/discordbots.org.js");
         discordbotsorg.init(client);
 
-        /* UNMUTE USERS */
+        /* UNMUTE USERS 
         let checkUnmutes = require("../helpers/checkUnmutes.js");
         checkUnmutes.init(client);
 
-        /* SEND REMIND */
+        /* SEND REMIND 
         let checkReminders = require("../helpers/checkReminders.js");
         checkReminders.init(client);
 
-        /* DAILY SHOP FORTNITE */
+        /* DAILY SHOP FORTNITE 
         let fortniteShop = require("../helpers/fortniteShop.js");
         fortniteShop.init(client);
 
@@ -40,10 +40,11 @@ module.exports = class {
             client.dashboard.load(client);
         }
 
-        // Start update of giveaways
+        /*
         let giveawaysOptions = { updateCountdownEvery: 15000, ignoreIfHasPermission: [ "ADMINISTRATOR" ], storage: require("path").resolve()+"/giveaways.json" };
         giveaways.launch(client, giveawaysOptions);
-
+        */
+       
         // Update the game every 20s
         const status = require("../config.js").status,
         version = require("../package.json").version;

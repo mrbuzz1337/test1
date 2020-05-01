@@ -13,7 +13,10 @@ module.exports = class {
 
     async run (message) {
 
-        const data = {};
+        const startAt = Date.now();
+        console.log(Date.now()-message.createdTimestamp, "started");
+
+        /*const data = {};
 
         // If the messagr author is a bot
         if(message.author.bot){
@@ -34,11 +37,13 @@ module.exports = class {
         let client = this.client;
         data.config = client.config;
     
+        console.log(Date.now()-startAt, "guild search");
         if(message.guild){
             // Gets guild data
             let guild = await client.findOrCreateGuild({ id: message.guild.id });
             data.guild = guild;
         }
+        console.log(Date.now()-startAt, "guild found");
 
         // Gets language
         let language = new(require(`../languages/${data.guild ? data.guild.language : this.client.config.defaultLanguage}.js`));
@@ -62,7 +67,8 @@ module.exports = class {
         let userData = await client.findOrCreateUser({ id: message.author.id });
         data.userData = userData;
 
-        if(message.guild){
+        console.log(Date.now()-startAt, "before");
+       if(message.guild){
 
             await updateXp(message, data);
 
@@ -114,6 +120,7 @@ module.exports = class {
             });
 
         }
+        console.log(Date.now()-startAt, "after");
 
         // Gets the prefix
         let prefix = client.functions.getPrefix(message, data);
@@ -221,6 +228,8 @@ module.exports = class {
         }
 
         try {
+            console.log(Date.now()-startAt)
+            console.log("launched: "+(Date.now()-message.createdTimestamp))
             cmd.run(message, args, data);
             if(cmd.help.category === "Moderation" && data.guild.autoDeleteModCommands){
                 message.delete();
@@ -228,7 +237,7 @@ module.exports = class {
         } catch(e){
             console.error(e);
             return message.channel.send(message.language.get("ERR_OCCURENCED"));
-        }
+        }*/
     }
 };
 
@@ -269,5 +278,5 @@ async function updateXp(msg, data){
 
     // Update user data
     data.memberData.exp = parseInt(newXp, 10);
-    await data.memberData.save();
+    //await data.memberData.save();
 }

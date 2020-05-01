@@ -1,4 +1,6 @@
-const Discord = require("discord.js");
+const { Collection } = require("discord.js");
+
+const databaseCache = new Collection();
 
 module.exports = {
 
@@ -11,16 +13,20 @@ module.exports = {
     async getUsersData(client, users){
         return new Promise(async function(resolve, reject){
             let usersData = [];
-            for(let u of users){
-                let result = await client.usersData.find({id: u.id});
-                if(result[0]){
-                    usersData.push(result[0]);
+            for(const user of users){
+                if(databaseCache.get(user.id)){
+                    return databaseCache.get(user.id);
                 } else {
-                    let user = new client.usersData({
-                        id: u.id
-                    });
-                    await user.save();
-                    usersData.push(user);
+                    const foundUserData = await client.usersData.findOne({ id: user.id });
+                    if(foundUserData){
+                        usersData.push(foundUserData);
+                        databaseCache.set(user.id, foundUserData);
+                    } else {
+                        const userData = new client.usersData({ id: user.id });
+                        databaseCache.set(user.id, userData);
+                        usersData.push(userData);
+                        databaseCache.set(user.id, foundUserData);
+                    }
                 }
             }
             resolve(usersData);
