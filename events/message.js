@@ -14,7 +14,7 @@ module.exports = class {
     async run (message) {
 
         const startAt = Date.now();
-        console.log(Date.now()-message.createdTimestamp, "started");
+        console.log("message received  ", "Date.now()-message.createdTimestamp: ", Date.now()-message.createdTimestamp, "client ping: ",  this.client.ws.ping);
 
         /*const data = {};
 
